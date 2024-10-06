@@ -36,6 +36,7 @@
  $meuEndereco = new Endereco("Rua Ademar Saraiva" , "123", "Santos"); //Passar as informações do a,b,c
 
  echo $meuEndereco;
+ 
 
 
 ?>
