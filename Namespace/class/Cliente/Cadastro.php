@@ -1,6 +1,6 @@
 <?php
 
-namespace Cliente;
+namespace Cliente; //Sabe que tá na subpasta Cliente
 
  class Cadastro extends \Cadastro{ //Vai na raiz e procura a classe cadastro
     public function registrarVenda() {
