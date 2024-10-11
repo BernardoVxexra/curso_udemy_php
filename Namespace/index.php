@@ -9,5 +9,5 @@
  $cad->setEmail("djalma@code.com.br");
  $cad->setSenha("123456");
 
- echo $cad;
+  $cad->registrarVenda();
 ?>
