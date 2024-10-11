@@ -17,6 +17,28 @@
         return $this->senha;
      }
 
+     //Setters
+
+     public function setNome($nome){
+        $this->nome = $nome;//Atributo nome recebe paramêtro nome
+     }
+     public function setEmail($email){
+        $this->email = $email;
+     }
+     public function setSenha($senha){
+        $this->senha = $senha;
+     }
+
+     public function __toString()
+     {
+        return json_encode(array(
+            //Aqui estamos mandando ele trazer estes atributos
+             "nome"=>$this->getNome(),
+             "email"=>$this->getEmail(),
+             "senha"=>$this->getSenha()
+        ));
+     }
+
  }
 
 ?>
