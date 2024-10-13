@@ -58,9 +58,23 @@ class Usuario {
 
     }
     public function login($login, $password){
-        
+        $sql = new Sql();
+        $results = $sql->select("SELECT * FROM usuario WHERE Login = :LOGIN AND Senha = :PASSWORD", array(
+            ":LOGIN"=>$login,
+            ":PASSWORD"=>$password
+        ));
+        if (count($results) > 0) {
+            $row = $results[0];
+
+            $this->setIdusuario($row['id']);
+            $this->setDeslogin($row['Login']); // Certifique-se de que o nome da coluna está correto
+            $this->setDessenha($row['Senha']); // Certifique-se de que o nome da coluna está correto
+        } else{
+            throw new Exception("Login e/ou senha invalidos");
+            
+        }
     }
-    
+
     public function __toString() {
         return json_encode(array(
             "id" => $this->getIdusuario(),

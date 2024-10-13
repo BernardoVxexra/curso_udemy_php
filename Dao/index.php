@@ -15,8 +15,8 @@
 
  //Carrega uma lista buscando pelo login
 
- $search = Usuario::search("a");
+ //$search = Usuario::search("a");
 
- echo json_encode($search);
+ //echo json_encode($search);
 
 ?>
