@@ -1,27 +1,10 @@
-<?php
- class sql extends PDO {
-    private $conn;
+<?php 
 
-    public function __construct()
-    {
-        $this->conn = new PDO("mysql:host=localhost;dbname=exemplocurso", "root" ,"" );
-        //Conectando no banco
-    }
+ require_once("config.php");
 
-    private function setParams($statment, $parameters = array()){
-        foreach($parameters as $key => $value){
-            $this->setParam($key, $value);
-          }
-    }
+ $sql = new Sql();
 
-    private function setParam($statment, $key, $value){
-        $statment->bindParam($key, $value);
-    }
+ $usuarios = $sql->select("SELECT * FROM produtos ");
 
-    public function query($rawQuery, $params = array()){
-              $stmt = $this->conn->prepare($RawQuery);
-
-            
-    }
- }
+ echo json_encode($usuarios);
 ?>
