@@ -34,13 +34,18 @@ class Usuario {
         $results = $sql->select("SELECT * FROM usuario WHERE id = :id", array(
             ":id" => $id
         ));
-        if (isset($results[0])) {
+        if (count($results) > 0) {
             $row = $results[0];
 
             $this->setIdusuario($row['id']);
             $this->setDeslogin($row['Login']); // Certifique-se de que o nome da coluna está correto
             $this->setDessenha($row['Senha']); // Certifique-se de que o nome da coluna está correto
         }
+    }
+
+    public function getList(){
+        $sql = new Sql();
+        $sql->select("SELECT * FROM usuario ORDER BY Login;");
     }
 
     public function __toString() {
