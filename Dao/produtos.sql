@@ -48,7 +48,15 @@ INSERT INTO `produtos` (`id`, `Nome`, `Estoque`) VALUES
 --
 -- Índices para tabelas despejadas
 --
+CREATE TABLE `usuario` (
+  `id` int(20) NOT NULL,
+  `Login`varchar(5) NOT NULL,
+  `Senha`int(11) NOT NULL 
+)ENGINE=InnoBD DEFAULT CHARSET=utf8mb4;
 
+INSERT INTO `usuario` ( `id`, `Login`, `Senha`) VALUES
+(1,'a',123),
+(2,'b',456);
 --
 -- Índices de tabela `produtos`
 --
