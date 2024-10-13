@@ -35,11 +35,7 @@ class Usuario {
             ":id" => $id
         ));
         if (count($results) > 0) {
-            $row = $results[0];
-
-            $this->setIdusuario($row['id']);
-            $this->setDeslogin($row['Login']); // Certifique-se de que o nome da coluna está correto
-            $this->setDessenha($row['Senha']); // Certifique-se de que o nome da coluna está correto
+            $this->setData($results[0]);
         }
     }
 
@@ -64,15 +60,38 @@ class Usuario {
             ":PASSWORD"=>$password
         ));
         if (count($results) > 0) {
-            $row = $results[0];
+          
+            $this->setData($results[0]);
 
-            $this->setIdusuario($row['id']);
-            $this->setDeslogin($row['Login']); // Certifique-se de que o nome da coluna está correto
-            $this->setDessenha($row['Senha']); // Certifique-se de que o nome da coluna está correto
         } else{
             throw new Exception("Login e/ou senha invalidos");
             
         }
+    }
+    public function setData($data){
+        $this->setIdusuario($data['id']);
+        $this->setDeslogin($data['Login']); 
+        $this->setDessenha($data['Senha']); 
+    }
+
+    //Criando método insert utilizando o DAO
+    public function insert (){
+        $sql = new Sql();
+
+        $results = $sql->select("CALL sp_usuario_insert(:LOGIN , :PASSWORD)", array(
+            ':LOGIN'=>$this->getDeslogin(),
+            ':PASSWORD'=>$this->getDessenha()
+        ));//sp stored procedure, nome da tabela e o que ela faz
+
+        if(count($results) > 0){
+             $this->setData($results[0]);
+        }
+    }
+
+    public function __construct($login = "" , $password = "")
+    {
+        $this->setDeslogin($login);
+        $this->setDessenha($password);
     }
 
     public function __toString() {

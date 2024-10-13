@@ -15,9 +15,11 @@
  //$search = Usuario::search("a");
  //echo json_encode($search);
 
- $usuario = new Usuario();
- $usuario->login("a", "123");
+$aluno = new Usuario("aluno", "@alyuni");
 
- echo $usuario;
+$aluno->insert();
+
+echo $aluno;
+
 
 ?>
