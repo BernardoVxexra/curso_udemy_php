@@ -43,11 +43,19 @@ class Usuario {
         }
     }
 
-    public function getList(){
+    public static  function getList(){
         $sql = new Sql();
-        $sql->select("SELECT * FROM usuario ORDER BY Login;");
-    }
+        return $sql->select("SELECT * FROM usuario ORDER BY Login;");
+    } //Pode se analisar que não usamos this então será um método statico
 
+
+    public static function search($login){
+       $sql = new Sql();
+
+       return $sql->select("SELECT * FROM usuario WHERE Login LIKE :SEARCH  ORDER BY Login ", array(
+        ':SEARCH' => "%". $login . "%"
+       ));
+    }
     public function __toString() {
         return json_encode(array(
             "id" => $this->getIdusuario(),

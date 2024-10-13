@@ -4,12 +4,13 @@
 
 //$root = new Usuario();
 //$root->loadById(2);
-
-echo $root;
-
+//echo $root;
 /* $sql = new Sql();
-
  $usuarios = $sql->select("SELECT * FROM produtos ");
-
  echo json_encode($usuarios);*/
+
+ //$lista  = Usuario::getList();
+
+ //echo json_encode($lista);
+
 ?>
