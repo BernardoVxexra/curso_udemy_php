@@ -21,6 +21,8 @@ class Sql extends PDO {
         $stmt = $this->conn->prepare($rawQuery); 
         //$rawQuery: Uma string que contém a consulta SQL que você deseja executar. 
         //Pode incluir parâmetros nomeados, como :id ou :name.
+        var_dump($params);
+    
         
         $this->setParams($stmt, $params);//Vinculando os parametros fornecidos no array $params
 
