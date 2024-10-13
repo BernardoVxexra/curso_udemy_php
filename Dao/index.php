@@ -11,12 +11,13 @@
 
  //$lista  = Usuario::getList();
  //echo json_encode($lista);
-
-
  //Carrega uma lista buscando pelo login
-
  //$search = Usuario::search("a");
-
  //echo json_encode($search);
+
+ $usuario = new Usuario();
+ $usuario->login("a", "123");
+
+ echo $usuario;
 
 ?>
