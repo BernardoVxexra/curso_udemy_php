@@ -10,7 +10,13 @@
  echo json_encode($usuarios);*/
 
  //$lista  = Usuario::getList();
-
  //echo json_encode($lista);
+
+
+ //Carrega uma lista buscando pelo login
+
+ $search = Usuario::search("a");
+
+ echo json_encode($search);
 
 ?>

@@ -55,7 +55,12 @@ class Usuario {
        return $sql->select("SELECT * FROM usuario WHERE Login LIKE :SEARCH  ORDER BY Login ", array(
         ':SEARCH' => "%". $login . "%"
        ));
+
     }
+    public function login($login, $password){
+        
+    }
+    
     public function __toString() {
         return json_encode(array(
             "id" => $this->getIdusuario(),
