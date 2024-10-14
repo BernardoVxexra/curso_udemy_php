@@ -94,7 +94,9 @@ class Usuario {
         $sql = new Sql();
 
         $sql->query("UPDATE usuario SET Login = :LOGIN, Senha = :PASSWORD WHERE Id = :ID", array(
-            
+            ':LOGIN'=>$this->getDeslogin(),
+            ':PASSWORD'=>$this->getDessenha(),
+            ':ID'=>$this->getIdusuario()
         )); 
         
     }
