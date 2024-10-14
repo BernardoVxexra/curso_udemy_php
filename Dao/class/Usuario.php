@@ -75,17 +75,16 @@ class Usuario {
     }
 
     //Criando método insert utilizando o DAO
-    public function insert (){
+    public function insert(){
         $sql = new Sql();
+          $results = $sql->select("CALL sp_usuarios_insert(:LOGIN, :PASSWORD)", array(
+              ':LOGIN'=>$this->getDeslogin(),
+              ':PASSWORD'=>$this->getDessenha()
+          ));
 
-        $results = $sql->select("CALL sp_usuario_insert(:LOGIN , :PASSWORD)", array(
-            ':LOGIN'=>$this->getDeslogin(),
-            ':PASSWORD'=>$this->getDessenha()
-        ));//sp stored procedure, nome da tabela e o que ela faz
-
-        if(count($results) > 0){
-             $this->setData($results[0]);
-        }
+          if(count($results) > 0){
+            $this->setData($results[0]);
+          }
     }
 
     public function __construct($login = "" , $password = "")
