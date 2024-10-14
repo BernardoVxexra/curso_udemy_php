@@ -89,15 +89,14 @@ class Usuario {
 
     public function update($Login, $password){
         $this->setDeslogin($Login);
-        $this->setDessenha($password
-    );
+        $this->setDessenha($password);
+    
         $sql = new Sql();
 
         $sql->query("UPDATE usuario SET Login = :LOGIN, Senha = :PASSWORD WHERE Id = :ID", array(
-            ':LOGIN'=>$this->getDeslogin(),
-            ':PASSWORD'=>$this->getDessenha(),
-            ':ID'=>$this->getIdusuario()
-        ));
+            
+        )); 
+        
     }
 
     public function __construct($login = "" , $password = "")

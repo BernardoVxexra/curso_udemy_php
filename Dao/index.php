@@ -15,11 +15,16 @@
  //$search = Usuario::search("a");
  //echo json_encode($search);
 
- $usuario = new Usuario();
+ /*$usuario = new Usuario();
  $usuario->login("root", "djkdjpvw");
 
- echo $usuario;
- 
+ echo $usuario;*/
 
+ $usuario = new Usuario();
+ $usuario->loadById(2);
+
+ $usuario->update("Professor", "1234");
+ 
+echo $usuario;
 
 ?>
