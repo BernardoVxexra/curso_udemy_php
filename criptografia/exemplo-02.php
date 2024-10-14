@@ -1,8 +1,9 @@
 <?php
 
 $cadastro = [
-      "nome" => "Taligado"
+      "nome" => "Taligado" //Valor associado
 ];//Esses serão os dados a serem criptografados 
+
 define('SECRET', 'senha1234567890'); // A chave deve ter 16, 24 ou 32 bytes para AES
 
 function encrypt($cadastro, $key){
