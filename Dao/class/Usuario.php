@@ -93,12 +93,20 @@ class Usuario {
     
         $sql = new Sql();
 
-        $sql->query("UPDATE usuario SET Login = :LOGIN, Senha = :PASSWORD WHERE Id = :ID", array(
+        $sql->query("UPDATE usuario SET Login = :LOGIN, Senha = :PASSWORD WHERE id = :ID", array(
             ':LOGIN'=>$this->getDeslogin(),
             ':PASSWORD'=>$this->getDessenha(),
             ':ID'=>$this->getIdusuario()
         )); 
         
+    }
+
+    public function delete(){
+        $sql = new Sql();
+
+        $sql->query("DELETE FROM usuario WHERE id = :ID", array(
+            ':ID'=>$this->getIdusuario()
+        ));
     }
 
     public function __construct($login = "" , $password = "")
