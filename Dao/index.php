@@ -20,11 +20,15 @@
 
  echo $usuario;*/
 
- $usuario = new Usuario();
+ /*$usuario = new Usuario();
  $usuario->loadById(2);
 
  $usuario->update("Professor", "1234");
  
-echo $usuario;
+echo $usuario;*/
+
+$usuario = new Usuario();
+$usuario->loadById(2);
+$usuario->delete();
 
 ?>

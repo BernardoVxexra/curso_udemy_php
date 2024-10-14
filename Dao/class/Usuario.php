@@ -107,6 +107,10 @@ class Usuario {
         $sql->query("DELETE FROM usuario WHERE id = :ID", array(
             ':ID'=>$this->getIdusuario()
         ));
+
+        $this->setIdusuario(0);
+        $this->setDeslogin("");
+        $this->setDessenha("");
     }
 
     public function __construct($login = "" , $password = "")
